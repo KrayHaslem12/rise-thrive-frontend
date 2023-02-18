@@ -1,0 +1,52 @@
+.page-wrapper {
+  margin: 3%;
+  font-size: large;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  width: calc(100vw - 10%);
+}
+
+.image-container img {
+  height: 15vw;
+  margin: 0 2vw;
+}
+
+button {
+  margin-top: 10px;
+  height: 2em;
+  width: 16em;
+}
+#radio-buttons-container input {
+  margin-bottom: 18px;
+}
+
+#identity-verification {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 16em;
+  height: 2em;
+}
+
+.asterisk {
+  font-size: small;
+}
+
+@media all and (max-width: 600px) {
+  button {
+    height: 3rem;
+    margin: 5% 0;
+    width: 100%;
+  }
+
+  #identity-verification {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 3rem;
+  }
+}
