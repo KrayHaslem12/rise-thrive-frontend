@@ -1,6 +1,6 @@
 var contestants = [];
 
-const render_radio = () => {
+const renderRadio = () => {
   for (let i = 0; i < contestants.length; i++) {
     const radioButton = document.createElement("input");
     radioButton.type = "radio";
@@ -28,8 +28,8 @@ const requestOptions = {
 
 fetch("http://127.0.0.1:5000/contestant/get", requestOptions)
   .then((response) => response.json())
-  .then((result) => (contestants = result), console.log(contestants))
-  .then(() => render_radio())
+  .then((result) => (contestants = result))
+  .then(() => renderRadio())
   .catch((error) => console.log("error", error));
 
 const radioButtonsContainer = document.querySelector(
@@ -58,5 +58,19 @@ function handleCLick() {
     body: JSON.stringify(values),
   };
 
-  fetch("http://127.0.0.1:5000/votes", postOptions);
+  fetch("http://127.0.0.1:5000/votes", postOptions)
+    .then((res) => res.json())
+    .then((data) => renderData(data))
+    .catch((error) =>
+      alert(
+        `There was a problem with your submisssion. Please try again, if the error persists contact an event coordinator. ERROR:${error}`
+      )
+    );
 }
+
+const renderData = (data) => {
+  const element = document.querySelector("#message");
+  const message = document.createElement("p");
+  message.innerText = `${data.message}`;
+  element.appendChild(message);
+};
