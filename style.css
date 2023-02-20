@@ -6,12 +6,17 @@
 .image-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: calc(100vw - 10%);
 }
 
 .image-container img {
   height: 15vw;
   margin: 0 2vw;
+}
+
+#innovation-logo {
+  height: 13vh;
 }
 
 button {

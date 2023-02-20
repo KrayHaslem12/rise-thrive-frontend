@@ -2,7 +2,7 @@ const urlString = window.location.href;
 const paramString = urlString.split("?")[1];
 const queryString = new URLSearchParams(paramString);
 const vote_id = queryString.get("voteId");
-const request_url = `http://127.0.0.1:5000/votes/verify/${vote_id}`;
+const request_url = `https://rise-thrive.herokuapp.com/votes/verify/${vote_id}`;
 const postOptions = {
   method: "POST",
   headers: {

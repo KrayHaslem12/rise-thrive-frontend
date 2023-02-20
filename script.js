@@ -26,7 +26,7 @@ const requestOptions = {
   credentials: "include",
 };
 
-fetch("http://127.0.0.1:5000/contestant/get", requestOptions)
+fetch("https://rise-thrive.herokuapp.com/contestant/get", requestOptions)
   .then((response) => response.json())
   .then((result) => (contestants = result))
   .then(() => renderRadio())
@@ -58,7 +58,7 @@ function handleCLick() {
     body: JSON.stringify(values),
   };
 
-  fetch("http://127.0.0.1:5000/votes", postOptions)
+  fetch("https://rise-thrive.herokuapp.com/votes", postOptions)
     .then((res) => res.json())
     .then((data) => renderData(data))
     .catch((error) =>
