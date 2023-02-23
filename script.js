@@ -6,14 +6,16 @@ const renderRadio = () => {
     radioButton.type = "radio";
     radioButton.name = "contestant";
     radioButton.value = contestants[i].contestant_id;
+    radioButton.id = contestants[i].contestant_id;
 
     const label = document.createElement("label");
     label.textContent = contestants[i].name;
+    label.htmlFor = contestants[i].contestant_id;
 
     const lineBreak = document.createElement("BR");
 
     radioButtonsContainer.appendChild(radioButton);
-    radioButton.appendChild(label);
+    radioButtonsContainer.appendChild(label);
     radioButtonsContainer.appendChild(lineBreak);
   }
 };
