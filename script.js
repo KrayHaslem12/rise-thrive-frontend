@@ -13,7 +13,7 @@ const renderRadio = () => {
     const lineBreak = document.createElement("BR");
 
     radioButtonsContainer.appendChild(radioButton);
-    radioButtonsContainer.appendChild(label);
+    radioButton.appendChild(label);
     radioButtonsContainer.appendChild(lineBreak);
   }
 };
