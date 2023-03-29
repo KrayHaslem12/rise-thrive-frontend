@@ -60,14 +60,20 @@ function handleCLick() {
     body: JSON.stringify(values),
   };
 
-  fetch("https://rise-thrive.herokuapp.com/votes", postOptions)
-    .then((res) => res.json())
-    .then((data) => renderData(data))
-    .catch((error) =>
-      alert(
-        `There was a problem with your submisssion. Please try again, if the error persists contact an event coordinator. ERROR:${error}`
-      )
-    );
+  if (values.selection === "") {
+    alert("No selection detected");
+  } else if (values.identity === "") {
+    alert("No phone detected");
+  } else {
+    fetch("https://rise-thrive.herokuapp.com/votes", postOptions)
+      .then((res) => res.json())
+      .then((data) => renderData(data))
+      .catch((error) =>
+        alert(
+          `There was a problem with your submisssion. Please try again, if the error persists contact an event coordinator.`
+        )
+      );
+  }
 }
 
 const renderData = (data) => {
