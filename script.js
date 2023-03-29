@@ -1,5 +1,9 @@
 var contestants = [];
 
+const radioButtonsContainer = document.querySelector(
+  "#radio-buttons-container"
+);
+
 const renderRadio = () => {
   for (let i = 0; i < contestants.length; i++) {
     const radioButton = document.createElement("input");
@@ -9,7 +13,7 @@ const renderRadio = () => {
     radioButton.id = contestants[i].contestant_id;
 
     const label = document.createElement("label");
-    label.textContent = contestants[i].name;
+    label.textContent = `${i + 1}. ${contestants[i].name}`;
     label.htmlFor = contestants[i].contestant_id;
 
     const lineBreak = document.createElement("BR");
@@ -33,10 +37,6 @@ fetch("https://rise-thrive.herokuapp.com/contestant/get", requestOptions)
   .then((result) => (contestants = result))
   .then(() => renderRadio())
   .catch((error) => console.log("error", error));
-
-const radioButtonsContainer = document.querySelector(
-  "#radio-buttons-container"
-);
 
 const submitButton = document.querySelector("#submit");
 
