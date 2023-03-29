@@ -24,6 +24,19 @@ const renderRadio = () => {
   }
 };
 
+function sortDecriptions(a, b) {
+  var descriptionA = a.description;
+  var descriptionB = b.description;
+
+  if (descriptionA < descriptionB) {
+    return -1;
+  }
+  if (descriptionA > descriptionB) {
+    return 1;
+  }
+  return 0;
+}
+
 const requestOptions = {
   method: "GET",
   headers: {
@@ -34,7 +47,7 @@ const requestOptions = {
 
 fetch("https://rise-thrive.herokuapp.com/contestant/get", requestOptions)
   .then((response) => response.json())
-  .then((result) => (contestants = result))
+  .then((result) => (contestants = result.sort(sortDecriptions)))
   .then(() => renderRadio())
   .catch((error) => console.log("error", error));
 
